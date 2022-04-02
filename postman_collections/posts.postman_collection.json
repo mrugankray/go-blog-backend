@@ -1,0 +1,702 @@
+{
+	"info": {
+		"_postman_id": "03ca6bed-ac6d-43ae-81ac-18bb6807a9ef",
+		"name": "posts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI2MjQ4YTEwYjgxNWJiODU2YTM1NTBlNmUiLCJleHAiOjE2NDkwMTM1Mjh9.PjmmxeHV2-vCA-cUyjq-ItMJUBQHHFYksgBrg5wOFKA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"test title \",\n    \"body\": \"test body\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 07:15:33 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6241609542bba66769cdc43f\",\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"jhgvck\"\n}"
+				},
+				{
+					"name": "Create post(bad request body)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 08:30:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"msg\": \"error while parsing request body\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Create post(required fields can't be empty)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 08:31:13 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"msg\": \"user_id can't be empty\",\n            \"param\": \"user_id\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "No posts found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 07:14:54 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"errors\":[{\"msg\":\"No posts found\"}]}\n"
+				},
+				{
+					"name": "Get all posts",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 07:15:44 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "107"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "[{\"_id\":\"6241609542bba66769cdc43f\",\"body\":\"bliknl\",\"date\":\"24/03/2022\",\"title\":\"kjbv \",\"userid\":\"jhgvck\"}]\n"
+				}
+			]
+		},
+		{
+			"name": "Delete a post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/posts/62416c5177bf105cfdd0f7f9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"posts",
+						"62416c5177bf105cfdd0f7f9"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete a post",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/posts/62416c5177bf105cfdd0f7f9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"62416c5177bf105cfdd0f7f9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 08:05:46 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"deletedId\":\"62416c5177bf105cfdd0f7f9\"}\n"
+				},
+				{
+					"name": "Delete a post(invalid object id)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/posts/cgvhjghm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"cgvhjghm"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 12:26:28 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "\"invalid object id\"\n"
+				},
+				{
+					"name": "Delete a post(post not found)",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/api/posts/62416c5177bf105cfdd0f7f9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"62416c5177bf105cfdd0f7f9"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 12:32:34 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\"errors\":[{\"msg\":\"post with this id is not found\"}]}\n"
+				}
+			]
+		},
+		{
+			"name": "Update post",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"jhgvck\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/posts/62416d9777bf105cfdd0f7fc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"posts",
+						"62416d9777bf105cfdd0f7fc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update post",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"jhgvck\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/62416d9777bf105cfdd0f7fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"62416d9777bf105cfdd0f7fc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 11:41:43 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"62416d9777bf105cfdd0f7fc\",\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"jhgvck\"\n}"
+				},
+				{
+					"name": "Update post(bad request body)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/62416d9777bf105cfdd0f7fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"62416d9777bf105cfdd0f7fc"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 11:42:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"msg\": \"error while parsing request body\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Update post(required fields can't be empty)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/62416d9777bf105cfdd0f7fc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"62416d9777bf105cfdd0f7fc"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 11:43:07 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "64"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"msg\": \"user_id can't be empty\",\n            \"param\": \"user_id\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Update post(invalid object id)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"jhgvck\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/gchjg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"gchjg"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 12:21:23 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						}
+					],
+					"cookie": [],
+					"body": "\"invalid object id\""
+				},
+				{
+					"name": "Update post(post not found\\)",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"date\": \"24/03/2022\",\n    \"title\": \"kjbv \",\n    \"body\": \"bliknl\",\n    \"userId\": \"jhgvck\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/posts/62416c5177bf105cfdd0f7f9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"posts",
+								"62416c5177bf105cfdd0f7f9"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 28 Mar 2022 14:50:15 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"msg\": \"post with this id is not found\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
