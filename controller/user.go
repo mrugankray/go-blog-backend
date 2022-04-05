@@ -133,6 +133,8 @@ func LoginUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUserDetails(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
 	errorResponse := make(map[string][]map[string]string)
 
 	// validate token
@@ -159,6 +161,8 @@ func GetUserDetails(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetAllUsers(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
 	errorResponse := make(map[string][]map[string]string)
 
 	users, getUsersError := helper.GetUsersHelper()
@@ -182,6 +186,8 @@ func GetAllUsers(w http.ResponseWriter, r *http.Request) {
 
 // Get a user
 func GetUserById(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
 	params := mux.Vars(r)
 
 	var user model.User
@@ -260,6 +266,7 @@ func UpdateUserDetails(w http.ResponseWriter, r *http.Request) {
 
 // delete a user
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
 
 	errorResponse := make(map[string][]map[string]string)
 

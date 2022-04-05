@@ -45,6 +45,8 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 
 // get all posts
 func GetPosts(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
 	errorResponse := make(map[string][]map[string]string)
 
 	posts, err := helper.GetPostsHelper()
@@ -69,6 +71,8 @@ func GetPosts(w http.ResponseWriter, r *http.Request) {
 
 // delete a post
 func DeletePost(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
 	params := mux.Vars(r)
 
 	errorResponse := make(map[string][]map[string]string)

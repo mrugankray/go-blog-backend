@@ -16,8 +16,8 @@ func Router() *mux.Router {
 
 	// users
 	router.HandleFunc("/api/user", controller.GetUserDetails).Methods("GET")
-	router.HandleFunc("/api/user/{id}", controller.GetUserById).Methods("GET")
 	router.HandleFunc("/api/user/all", controller.GetAllUsers).Methods("GET")
+	router.HandleFunc("/api/user/{id}", controller.GetUserById).Methods("GET")
 	router.HandleFunc("/api/user/signup", controller.CreateUser).Methods("POST")
 	router.HandleFunc("/api/user/login", controller.LoginUser).Methods("POST")
 	router.HandleFunc("/api/user", controller.UpdateUserDetails).Methods("PUT")
